@@ -2,34 +2,55 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
- 
-        <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <script async src="https://cse.google.com/cse.js?cx=123:456"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
-  <title>A day or night in Belgium</title>
+
+  <title>Powerd by songkick </title>
     </head>
 
     <body>
-        <h1>A day or night in Ghent</h1>
-        <p> I will (try) to createe a app that renders all concert's and events in ghent by date (and location).
-            using Api from songkick. </p>
+      <header>
+          <h1>A day or night in your city!</h1>
+    </header>
+        
+        <p> I will (try) to create a app that renders all concert's and events displayed by cuurent location (installed geo location on Gent).
+            using Api from songkick. </p><br>
             
-                <div>
-                        <form novalidate>
-                                <p>
-                                  <label for="mail">
-                                    <span>Please enter the artist you are looking for:</span>
-                                    <input type="artistname" id="name" name="artist">
-                                    <span class="error" aria-live="polite"></span>
-                                  </label>
-                                </p>
-                                <button>Submit</button>
-                                <p>This is a weak approche i will start by hard selfstudy on rest api and zero youtube will be watched damned!</p>
-                              </form>
-                </div>
-                    
+             <div class="form">
+               
+                                  <label for="site-search">Search by artistname:</label>
+                            <input type="search" id="site-search" name="q"
+                                    aria-label="Search through site content">
+
+                                  <button>Search</button>
+            </div>
+            <!--><div class="gcse-searchbox"> and <div class="gcse-searchresults">
+            <div class="gcse-search"></div>-->
+  
+                  <main class="main-container">  
+  
+                      <div class="artist_section"> 
+                      Artist name 
+                      </div>  
+                      
+                      <div class="venue_section">  
+                     Venue 
+                      </div>  
+                      
+                      <div class="date_section">  
+                     Date  
+                      </div>  
+                      
+                     <div class =" metro_section">
+
+                     </div>
+                      
+                    </main>  
+
     </body>
 
 

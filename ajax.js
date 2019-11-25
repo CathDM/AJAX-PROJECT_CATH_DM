@@ -1,88 +1,63 @@
-body {
-    font: 1em sans-serif;
-    padding: 0;
-    margin : 0;
-  }
-  
-  form {
-    max-width: 200px;
-  }
-  
-  p * {
-    display: block;
-  }
-  
-  input[type=email]{
-    -webkit-appearance: none;
-  
-    width: 100%;
-    border: 1px solid #333;
-    margin: 0;
-  
-    font-family: inherit;
-    font-size: 90%;
-  
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  /* This is our style for the invalid fields */
-  input:invalid{
-    border-color: #900;
-    background-color: #FDD;
-  }
-  
-  input:focus:invalid {
-    outline: none;
-  }
-  
-  /* This is the style of our error messages */
-  .error {
-    width  : 100%;
-    padding: 0;
-   
-    font-size: 80%;
-    color: white;
-    background-color: #900;
-    border-radius: 0 0 5px 5px;
-   
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  .error.active {
-    padding: 0.3em;
-  }
-  JavaScript
-  The following JavaScript code handles the custom error validation.
-  
-  // There are many ways to pick a DOM node; here we get the form itself and the email
-  // input box, as well as the span element into which we will place the error message.
-  
-  var form  = document.getElementsByTagName('form')[0];
-  var email = document.getElementById('mail');
-  var error = document.querySelector('.error');
-  
-  email.addEventListener("input", function (event) {
-    // Each time the user types something, we check if the
-    // email field is valid.
-    if (email.validity.valid) {
-      // In case there is an error message visible, if the field
-      // is valid, we remove the error message.
-      error.innerHTML = ""; // Reset the content of the message
-      error.className = "error"; // Reset the visual state of the message
-    }
-  }, false);
-  form.addEventListener("submit", function (event) {
-    // Each time the user tries to send the data, we check
-    // if the email field is valid.
-    if (!email.validity.valid) {
-      
-      // If the field is not valid, we display a custom
-      // error message.
-      error.innerHTML = "I expect an e-mail, darling!";
-      error.className = "error active";
-      // And we prevent the form from being sent by canceling the event
-      event.preventDefault();
-    }
-  }, false);
+//use of 3 diffrent api keys:
+//*Use of songkick API response object list of concert and based on geolocated upcoming events 
+//*Use of songkick API response object reference on artist ID 
+//*use of mailbox with  SENDGRID api?
+
+
+const form = document.querySelector("form");
+const artist_section = document.querySelector(".artist_section");
+const venue_section = document.querySelector(".venue_section");
+const date_section = document.querySelector(".date_section");
+const metro_section = document.querySelector(".metro_section");
+const locationElement = document.querySelector(".location p");
+// Api key
+const key = "udl9x9itvOgya1sx";
+
+
+// check if browser supports geolocation
+if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(setPosition, showError);
+
+} else {
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = "<p>Browser doesn't Support Geolocation</p>";
+}
+// set user's position
+function setPosition(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    getCity(latitude, longitude);
+}
+
+// show error when there is an issue with geolocation service
+function showError(error) {
+    notificationElement.style.display = "block";
+    notificationElement.innerHTML = `<p> ${error.message} </p>`;
+}
+// Get gig list from api provider
+
+function getLocation(latitude, longitude) {
+    let api = `https://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=udl9x9itvOgya1sx`;
+    // console.log(api);
+    //use searchparagrams
+    fetch(api)
+        .then(function(response) {
+            let data = response.json();
+            return data;
+        })
+        .then(function(data) {
+            //write fuction to  return list of gigs based on geo location of clientIp
+            //use of apend child?
+        })
+        //display list
+        .then(function() {
+            displayList();
+        });
+
+}
+
+
+
+
+// Dislay concertlist to UI
