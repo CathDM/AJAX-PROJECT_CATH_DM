@@ -37,26 +37,29 @@ function showError(error) {
 }
 // Get gig list from api provider
 
-function getLocation(latitude, longitude) {
-    let api = `https://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=udl9x9itvOgya1sx`;
-    // console.log(api);
-    //use searchparagrams
-    fetch(api)
-        .then(function(response) {
-            let data = response.json();
-            return data;
-        })
-        .then(function(data) {
-            //write fuction to  return list of gigs based on geo location of clientIp
-            //use of apend child?
-        })
-        //display list
-        .then(function() {
-            displayList();
-        });
+// function getLocation(latitude, longitude) {
+//     let api = `https://api.songkick.com/api/3.0/search/locations.json?location=clientip&apikey=udl9x9itvOgya1sx`;
+//     // console.log(api);
+//     //use searchparagrams
+//     fetch(api)
+//         .then(function(response) {
+//             let data = response.json();
+//             return data;
+//         })
+//         .then(function(data) {
+//             //write fuction to  return list of gigs based on geo location of clientIp
+//             //use of apend child?
+//         })
+//         //display list
+//         .then(function() {
+//             displayList();
+//         });}
 
-}
 
+$.getJSON("https://api.songkick.com/api/3.0/events.json?location=clientip&apikey=udl9x9itvOgya1sx&jsoncallback=?",
+  function(data) {
+    // data is JSON response object
+  });
 
 
 
