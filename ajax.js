@@ -1,3 +1,19 @@
+// $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function(){
+//   var next = $(this).next();
+//   if (!next.length) {
+//     next = $(this).siblings(':first');
+//   }
+//   next.children(':first-child').clone().appendTo($(this));
+
+//   for (var i=0;i<4;i++) {
+//     next=next.next();
+//     if (!next.length) {
+//       next=$(this).siblings(':first');
+//     }
+//     next.children(':first-child').clone().appendTo($(this));
+//   }
+// });
+
 //use of 3 diffrent api keys:
 //*Use of songkick API response object list of concert and based on geolocated upcoming events 
 //*Use of songkick API response object reference on artist ID 
@@ -64,3 +80,4 @@ $.getJSON("https://api.songkick.com/api/3.0/events.json?location=clientip&apikey
 
 
 // Dislay concertlist to UI
+//that will thake another day at least
